@@ -60,8 +60,7 @@ System.loadLibrary("NativeImageProcessor")
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = "Photo Filter"
         loadImage()
-        setupViewPager(viewPager)
-        tabs.setupWithViewPager(viewPager)
+      
     }
 
     private fun setupViewPager(viewPager: NonSwipeableViewPager?) {
@@ -82,14 +81,14 @@ System.loadLibrary("NativeImageProcessor")
         originalImage = BitmapUtils.getBitmapFromAssets(this, Main.IMAGE_NAME, 300, 300)
         filteredImage = originalImage!!.copy(Bitmap.Config.ARGB_8888, true)
         finalImage = originalImage!!.copy(Bitmap.Config.ARGB_8888, true)
-        image_preview.setImageBitmap(originalImage)
+        image_preview.source.setImageBitmap(originalImage)
 
     }
 
     override fun onFilterSelected(filter: Filter) {
         resetControles()
         filteredImage = originalImage!!.copy(Bitmap.Config.ARGB_8888, true)
-        image_preview.setImageBitmap(filter.processFilter(filteredImage))
+        image_preview.source.setImageBitmap(filter.processFilter(filteredImage))
         finalImage = filteredImage.copy(Bitmap.Config.ARGB_8888, true)
     }
 
@@ -107,7 +106,7 @@ System.loadLibrary("NativeImageProcessor")
         brightnessFinal = brightnes
         val myFilter = Filter()
         myFilter.addSubFilter(BrightnessSubFilter(brightnes))
-        image_preview.setImageBitmap(
+        image_preview.source.setImageBitmap(
             myFilter.processFilter(
                 finalImage.copy(
                     Bitmap.Config.ARGB_8888,
@@ -121,7 +120,7 @@ System.loadLibrary("NativeImageProcessor")
         saturationFinal = saturation
         val myFilter = Filter()
         myFilter.addSubFilter(SaturationSubfilter(saturation))
-        image_preview.setImageBitmap(
+        image_preview.source.setImageBitmap(
             myFilter.processFilter(
                 finalImage.copy(
                     Bitmap.Config.ARGB_8888,
@@ -135,7 +134,7 @@ System.loadLibrary("NativeImageProcessor")
         contrasFinal = constrant
         val myFilter = Filter()
         myFilter.addSubFilter(ContrastSubFilter(constrant))
-        image_preview.setImageBitmap(
+        image_preview.source.setImageBitmap(
             myFilter.processFilter(
                 finalImage.copy(
                     Bitmap.Config.ARGB_8888,

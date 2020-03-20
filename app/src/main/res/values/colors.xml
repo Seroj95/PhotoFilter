@@ -7,5 +7,6 @@
     <color name="filter_label_normal">#777E7E</color>
     <color name="filter_label_selected">#0C0C0C</color>
     <color name="color_option_menu">#00288E</color>
+    <color name="color_backgraund">#8E008C</color>
 
 </resources>
