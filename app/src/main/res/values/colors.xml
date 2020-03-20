@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="filter_label_name">#6A6C6C</color>
+    <color name="filter_label_normal">#777E7E</color>
     <color name="filter_label_selected">#0C0C0C</color>
     <color name="color_option_menu">#00288E</color>
 
