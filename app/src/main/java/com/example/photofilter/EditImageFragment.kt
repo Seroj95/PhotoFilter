@@ -12,6 +12,9 @@ import kotlinx.android.synthetic.main.fragment_edit_image.*
 
 class EditImageFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
     private var listenr: EditImageFragmenListener? = null
+    internal lateinit var  seekbar_brightness:SeekBar
+    internal lateinit var  seekbar_constrant:SeekBar
+    internal lateinit var  seekbar_saturation:SeekBar
     fun resetControles() {
 
         seekbar_brightness.progress = 100
@@ -33,10 +36,17 @@ class EditImageFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_edit_image, container, false)
+//View
+        seekbar_brightness=view.findViewById(R.id.seekbar_brightness)
+        seekbar_constrant=view.findViewById(R.id.seekbar_constrant)
+        seekbar_saturation=view.findViewById(R.id.seekbar_saturation)
+
         seekbar_brightness.max = 200
         seekbar_brightness.progress = 100
+
         seekbar_constrant.max = 20
         seekbar_constrant.progress = 0
+
         seekbar_saturation.max = 30
         seekbar_saturation.progress = 10
 

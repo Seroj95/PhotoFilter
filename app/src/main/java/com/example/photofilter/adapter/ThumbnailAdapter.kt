@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.photofilter.R
 import com.example.photofilter.interfacee.FilterListFragmentListener
@@ -44,7 +45,11 @@ val itemView=LayoutInflater.from(context).inflate(R.layout.thumbnail_list_item,p
 selectedIndex=position
             notifyDataSetChanged()
         }
-
+holder.filterName.text=thummNailItem.filterName
+        if (selectedIndex==position)
+            holder.filterName.setTextColor(ContextCompat.getColor(context,R.color.filter_label_selected))
+        else
+            holder.filterName.setTextColor(ContextCompat.getColor(context,R.color.filter_label_normal))
     }
 }
 
